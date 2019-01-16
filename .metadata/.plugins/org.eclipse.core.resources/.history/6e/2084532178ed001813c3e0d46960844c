@@ -1,0 +1,84 @@
+package javadoc;
+
+import java.util.Random;
+
+/**
+ * <h1>Prueba JavaDoc</h1>
+ * <h2>Esto es un ejemplo de documentación</h2>
+ * Puedo añadir etiquetas HTML, para <b> mejorar </b> la presentación.
+ * Por ejemplo añado la lista de métodos.
+ * <ul>
+ * 	<li>Método main</li>
+ * 	<li>Método saludar</li>
+ * 	<li>Método despedir</li>
+ * 	<li>Método generarAleatorio</li>
+ * </ul>
+ * 
+ * @author Daniel Sánchez
+ * @version v1.0
+ * @since 21/11/2018
+ */
+public class PruebaJavaDoc {
+	
+	static final int MIN = 1;
+	static final int MAX = 15;
+	static Random rd;
+	
+	/**
+	 * <h3>Método main</h3>
+	 * Desde este método se invoca al método saludar, se generan y se muestran 10 números
+	 * aleatorios entre un min y un max y se invoca al método despedir.
+	 *  
+	 * @param args (array de String)
+	 * @see saludar
+	 * @see despedir
+	 * @see generarAleatorio
+	 */
+	
+	public static void main(String[] args) {
+		saludar();
+		
+		int n;
+		rd = new Random();
+		System.out.println("Se van a generar números aleatorios entre" + MIN + " y " + MAX);
+		for (int i = 0; i < 10; i++) {
+			n = generarAleatorio(MIN, MAX);
+			System.out.println(n);
+		}
+		
+		despedir();
+	}
+	
+	/**
+	 * <h3>Método saludar</h3>
+	 * Muestra por pantalla un mensaje de bienvenida.
+	 */
+	
+	public static void saludar() {
+		System.out.println("Bienvenido, empieza el proceso.");		
+	}
+	
+	/**
+	 * <h3>Método despedir</h3>
+	 * Muestra por pantalla un mensaje de despedida.
+	 */
+	
+	public static void despedir() {
+		System.out.println("Hasta pronto amigo, esperamos volver a verte.");	
+	}
+	
+	/**
+	 * <h3>Método generarAleatorios</h3>
+	 * Genera enteros aleatorios entre un mínimo y un máximo que recibe como parámetros
+	 * 
+	 * @param min
+	 * @param max
+	 * @return número aleatorio generado de tipo int
+	 */
+	
+	public static int generarAleatorio(int min, int max) {
+		int numAlea = rd.nextInt(max-min+1) + min;
+		return numAlea;
+	}
+	
+}
